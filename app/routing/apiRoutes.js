@@ -3,11 +3,12 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var server = require("../server.js");
 var friends = require("../data/friends.js");
-var app = express();
+//var app = express();
 
 // Export API routes
 module.exports = function(app) {
-	// console.log('___ENTER apiRoutes.js___');
+
+	console.log('___ENTER apiRoutes.js___');
 
 	// Total list of friend entries
 	app.get('/api/friends', function(req, res) {
