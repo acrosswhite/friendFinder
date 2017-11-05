@@ -51,7 +51,7 @@
 							<div class="form-group">
 								<label for="">Question 1</label>
 								<h5>Do you enjoy long walks on the beach? (rate between 1-5, 5 is agree completely)</h5>
-								<select id="question1">
+								<select class="custom-select" id="question1">
 									<option value="" disabled selected>Choose one</option>
 									<option value="1">1 (Strongly Disagree)</option>
 									<option value="2">2</option>
@@ -62,23 +62,36 @@
 							</div>
 
 							<div class="form-group">
-								<label for="">Question 1</label>
+								<label for="">Question 2</label>
 								<h5>Do enjoy pina coladas? (rate between 1-5, 5 is agree completely)</h5>
-								<select id="question1">
+								<select class="custom-select" id="question2">
 									<option value="" disabled selected>Choose one</option>
 									<option value="1">1 (Strongly Disagree)</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5 (Strongly Agree)</option>
+								</select>
 							</div>
-									<button type="submit" class="btn btn-success submit">Submit</button>
+								<button type="submit" class="btn btn-success submit">Submit</button>
 						</form>
 
 					</div>
 
 			</div>
 
+			</div>
+		</div>
+		<!-- Modal Dialog Displaying Closest Friend Match -->
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h4>Closest Friend Match</h4>
+				<div class="divider"></div>
+				<h5 id="userMatch"></h5>
+				<img id="userMatchImage" class="materialboxed" width="650" src="">
+			</div>
+			<div class="modal-footer">
+				<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
 			</div>
 		</div>
 
@@ -92,42 +105,43 @@
 	</div>
 </body>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('select').material_select();
-			$('.modal').modal({
-				dismissible: false, // Modal can be dismissed by clicking outside of the modal
-				opacity: .5, // Opacity of modal background
-				inDuration: 300, // Transition in duration
-				outDuration: 200, // Transition out duration
-				startingTop: '4%', // Starting top style attribute
-				endingTop: '10%' // Ending top style attribute
-			});
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("form-group").val();
+		$(".modal").modal({
+			dismissible: false, // Modal can be dismissed by clicking outside of the modal
+			opacity: .5, // Opacity of modal background
+			inDuration: 300, // Transition in duration
+			outDuration: 200, // Transition out duration
+			startingTop: '4%', // Starting top style attribute
+			endingTop: '10%' // Ending top style attribute
 		});
-		// Activate submit button
-		$('#submitButton').on('click', function(event) {
-			event.preventDefault();
-			// Gather user inputs
-			var userInput = {
-				name: $('#userName').val().trim(),
-				photo: $('#userPhoto').val().trim(),
-				scores:[
-					$('#question1').val().trim(),
-					$('#question2').val().trim(),
+	});
+	// Activate submit button
+	$('#submitButton').on('click', function(event) {
+		event.preventDefault();
+		// Gather user inputs
+		var userInput = {
+			name: $('#userName').val().trim(),
+			photo: $('#userPhoto').val().trim(),
+			scores:[
+				$('#question1').val().trim(),
+				$('#question2').val().trim(),
 
-				]
-			};
-			// console.log('userInput = ' + JSON.stringify(userInput));
-			// Add user inputs to friends list
-			$.post('/api/friends', userInput)
-      		.done(function(data) {
-      			// console.log('response = ' + JSON.stringify(data));
-      			// Set the name and image values of friend match
-      			$('#userMatch').html(data.matchName);
-		    	$("#userMatchImage").attr("src", data.matchImage);
-		    	// Pop open the modal dialog
-      			$('#modal1').modal('open');
-      		});
-		});
-	</script>
+			]
+		};
+		console.log('userInput = ' + JSON.stringify(userInput));
+		// Add user inputs to friends list
+		$.post('/api/friends', userInput)
+  		.done(function(data) {
+  			console.log('response = ' + JSON.stringify(data));
+  			// Set the name and image values of friend match
+  			$('#userMatch').html(data.matchName);
+	    	$("#userMatchImage").attr("src", data.matchImage);
+	    	// Pop open the modal dialog
+  			$('#modal1').modal('open');
+  		});
+	});
+</script>
+
 </html>
