@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>take survey</title>
+
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="jumbotron">
+			<h1 class="text-center"><span class="glyphicon glyphicon-list-alt"></span> Survey</h1>
+			<hr>
+			<h2 class="text-center">Fill in the questions to get matched to a new friend!</h2>
+			<br>
+
+			<div class="text-center">
+				<a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+
+				<!-- Survey Page -->
+
+					<div class="panel-body">
+
+						<form role="form">
+
+							<h3>About You</h3>
+							<div class="form-group">
+								<label for="">Full Name (Required)</label>
+								<input type="text" required="true" class="form-control" id="user_name">
+							</div>
+
+							<div class="form-group">
+								<label for="">Photo (Required)</label>
+								<input type="text" required="true" class="form-control" id="user_photo">
+							</div>
+
+							<br>
+							<hr>
+							<br>
+
+							<div class="form-group">
+								<label for="">Question 1</label>
+								<h5>Do you enjoy long walks on the beach? (rate between 1-5, 5 is agree completely)</h5>
+								<input type="range" name="points" min="0" max="5" class="form-control" id="q1">
+							</div>
+
+							<div class="form-group">
+								<label for="">Question 1</label>
+								<h5>Do enjoy pina coladas? (rate between 1-5, 5 is agree completely)</h5>
+								<input type="range" name="points" min="0" max="5" class="form-control" id="q1">
+							</div>
+
+							<button type="submit" class="btn btn-success submit">Submit</button>
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+	    <footer class="footer">
+	      <div class="container">
+	        <p><a href="/api/friends">API friends</a> | <a href="https://github.com/acrosswhite/friendFinder">Github Repo</a> </p>
+	      </div>
+	    </footer>
+
+	</div>
+</body>
+</html>
