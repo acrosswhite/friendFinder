@@ -36,12 +36,12 @@
 							<h3>About You</h3>
 							<div class="form-group">
 								<label for="">Full Name (Required)</label>
-								<input type="text" required="true" class="form-control" id="user_name">
+								<input type="text" required="true" class="form-control" id="userName">
 							</div>
 
 							<div class="form-group">
 								<label for="">Photo (Required)</label>
-								<input type="text" required="true" class="form-control" id="user_photo">
+								<input type="text" required="true" class="form-control" id="userPhoto">
 							</div>
 
 							<br>
@@ -73,7 +73,7 @@
 									<option value="5">5 (Strongly Agree)</option>
 								</select>
 							</div>
-								<button type="submit" class="btn btn-success submit">Submit</button>
+								<button type="submit" class="btn btn-success submit" data-toggle="modal" data-target="#modal1" id="submitButton">Submit</button>
 						</form>
 
 					</div>
@@ -82,17 +82,27 @@
 
 			</div>
 		</div>
-		<!-- Modal Dialog Displaying Closest Friend Match -->
-		<div id="modal1" class="modal">
-			<div class="modal-content">
-				<h4>Closest Friend Match</h4>
-				<div class="divider"></div>
+		<!-- Modal -->
+		<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Closest Match!</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="divider"></div>
 				<h5 id="userMatch"></h5>
 				<img id="userMatchImage" class="materialboxed" width="650" src="">
-			</div>
-			<div class="modal-footer">
-				<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
-			</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Find a new friend!</button>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 
 
@@ -140,6 +150,7 @@
 	    	$("#userMatchImage").attr("src", data.matchImage);
 	    	// Pop open the modal dialog
   			$('#modal1').modal('open');
+
   		});
 	});
 </script>
