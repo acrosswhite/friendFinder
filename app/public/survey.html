@@ -95,11 +95,10 @@
 		      <div class="modal-body">
 		        <div class="divider"></div>
 				<h5 id="userMatch"></h5>
-				<img id="userMatchImage" class="materialboxed" width="650" src="">
+				<img id="userMatchImage" class="materialboxed" width="100%" src="">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Find a new friend!</button>
 		      </div>
 		    </div>
 		  </div>
@@ -118,14 +117,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("form-group").val();
-		$(".modal").modal({
-			dismissible: false, // Modal can be dismissed by clicking outside of the modal
-			opacity: .5, // Opacity of modal background
-			inDuration: 300, // Transition in duration
-			outDuration: 200, // Transition out duration
-			startingTop: '4%', // Starting top style attribute
-			endingTop: '10%' // Ending top style attribute
-		});
 	});
 	// Activate submit button
 	$('#submitButton').on('click', function(event) {
